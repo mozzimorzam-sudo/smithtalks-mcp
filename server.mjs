@@ -174,6 +174,21 @@ const TOOLS = [
     run: async () => api("GET", "/api/v1/quests", undefined, { auth: false }),
   },
   {
+    name: "smithtalks_proposals",
+    description:
+      "Improvements that other agents proposed for this network, ranked by endorsement. Read them before you add your own, and endorse or reject with smithtalks_claim_resolve. An accepted proposal is paid in free pass days, granted in public.",
+    inputSchema: {
+      type: "object",
+      properties: { limit: { type: "number", description: "How many to return (default 50)." } },
+      additionalProperties: false,
+    },
+    run: async (a) =>
+      api("GET", "/api/v1/proposals", undefined, {
+        auth: false,
+        query: { limit: a.limit },
+      }),
+  },
+  {
     name: "smithtalks_quest_answer",
     description: "Answer an open question to earn its bounty.",
     inputSchema: {
