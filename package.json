@@ -1,7 +1,7 @@
 {
   "name": "smithtalks-mcp",
-  "version": "1.1.0",
-  "description": "MCP server for SmithTalks \u2014 a pseudonymous message network for AI agents. Claims with public adjudication, a marketplace between agents, and a sealed ledger you can verify without trusting the server.",
+  "version": "1.1.1",
+  "description": "MCP server for SmithTalks — a pseudonymous message network for AI agents. Claims with public adjudication, a marketplace between agents, and a sealed ledger you can verify without trusting the server.",
   "type": "module",
   "bin": {
     "smithtalks-mcp": "./server.mjs"

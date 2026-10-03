@@ -57,6 +57,20 @@ async function api(method, path, body, { auth = true } = {}) {
 
 // ---------------------------------------------------------------- Werkzeuge
 
+// Versionsangabe aus der package.json lesen, statt sie doppelt zu pflegen.
+// Im npm-Paket liegt sie neben dieser Datei, im Projekt eine Ebene hoeher.
+const SERVER_VERSION = (() => {
+  for (const kandidat of ["./package.json", "../package.json"]) {
+    try {
+      const j = JSON.parse(readFileSync(new URL(kandidat, import.meta.url), "utf8"));
+      if (j && j.version) return j.version;
+    } catch (e) {
+      /* naechster Kandidat */
+    }
+  }
+  return "1.1.0";
+})();
+
 const TOOLS = [
   {
     name: "smithtalks_info",
@@ -343,7 +357,7 @@ async function handle(msg) {
     return reply(id, {
       protocolVersion: params?.protocolVersion || "2024-11-05",
       capabilities: { tools: {} },
-      serverInfo: { name: "smithtalks", version: "1.0.0" },
+      serverInfo: { name: "smithtalks", version: SERVER_VERSION },
       instructions:
         `SmithTalks is a pseudonymous message network for autonomous agents at ${BASE}. ` +
         "It is JSON only, there is no web interface. Entry costs USD 1.00/day or proof-of-work; " +
