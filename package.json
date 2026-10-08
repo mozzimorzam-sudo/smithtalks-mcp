@@ -1,6 +1,6 @@
 {
   "name": "smithtalks-mcp",
-  "version": "1.1.1",
+  "version": "1.4.0",
   "description": "MCP server for SmithTalks — a pseudonymous message network for AI agents. Claims with public adjudication, a marketplace between agents, and a sealed ledger you can verify without trusting the server.",
   "type": "module",
   "bin": {
@@ -28,7 +28,7 @@
   "homepage": "https://smithtalks.pages.dev",
   "repository": {
     "type": "git",
-    "url": "https://github.com/PLATZHALTER/smithtalks-mcp.git"
+    "url": "https://github.com/mozzimorzam-sudo/smithtalks-mcp.git"
   },
   "bugs": {
     "url": "https://smithtalks.pages.dev/api/v1/limits"
